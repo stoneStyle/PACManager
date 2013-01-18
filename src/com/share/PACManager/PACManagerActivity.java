@@ -139,7 +139,7 @@ public class PACManagerActivity extends TabActivity
 		TabHost tabHost = getTabHost();
 		//1
 		View view = createTabView(this, "–≈œ¢µ«º«");
-		Intent intent = new Intent(this, TestActivity.class);
+		Intent intent = new Intent(this, RegActivity.class);
 		TabSpec spec = tabHost.newTabSpec("tab1");
 		spec.setIndicator(view);
 		spec.setContent(intent);
