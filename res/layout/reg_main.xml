@@ -12,15 +12,15 @@
 	 	<RelativeLayout
 	 	 android:layout_width="fill_parent"
 		 android:layout_height="wrap_content">
-		 <TextView  
-			android:id="@+id/text_title"
-			android:layout_marginTop="20dip"
-			android:layout_marginBottom="20dip"
-    		android:layout_width="wrap_content" 
-    		android:layout_height="wrap_content"
-    		android:layout_centerHorizontal="true"
-		    android:text="人员注册"
-		    android:textSize="20dip"/>
+		    <TextView  
+			 android:id="@+id/text_title"
+			 android:layout_marginTop="20dip"
+			 android:layout_marginBottom="20dip"
+	    	 android:layout_width="wrap_content" 
+	    	 android:layout_height="wrap_content"
+	    	 android:layout_centerHorizontal="true"
+		     android:text="人员注册"
+			 android:textSize="20dip"/>
 		 	<RelativeLayout
 		 	 android:layout_below="@id/text_title"
 		  	 android:layout_width="fill_parent"
@@ -57,72 +57,64 @@
 				 android:layout_alignParentRight="true"			 
 				 android:text="注册新企业"/>
 			</RelativeLayout>
+			<Spinner
+			 android:layout_below="@id/layout_company" 
+			 android:layout_height="wrap_content" 
+			 android:layout_width="20dip"			 			 
+			 android:id="@+id/spinner_persontype"/>
 			<EditText
-			 android:layout_below="@id/layout_company"
+			 android:layout_below="@id/spinner_persontype"
+			 android:layout_width="fill_parent"
+			 android:layout_height="wrap_content"			 
+			 android:hint ="输入待注册人员的姓名"
+			 android:id="@+id/edit_person_name"/>
+			<Spinner
+			 android:layout_below="@id/edit_person_name" 
+			 android:layout_height="wrap_content" 
+			 android:layout_width="20dip"			  
+			 android:id="@+id/spinner_cardtype"/>			 
+			<EditText
+			 android:layout_below="@id/spinner_cardtype"
+			 android:layout_width="fill_parent"
+			 android:layout_height="wrap_content"			 
+			 android:hint ="输入待注册人员的身份证号"
+			 android:id="@+id/edit_card_code"/>
+			<EditText
+			 android:layout_below="@id/edit_card_code"
 			 android:layout_width="fill_parent"
 			 android:layout_height="wrap_content"
-			 android:id="@+id/edit_person_name"
 			 android:hint ="输入待注册人员的姓名"
-			 />
+			 android:id="@+id/edit_person_name"/>
 			<EditText
 			 android:layout_below="@id/edit_person_name"
 			 android:layout_width="fill_parent"
 			 android:layout_height="wrap_content"
-			 android:id="@+id/edit_person_code"
-			 android:hint ="输入待注册人员的身份证号"
-			 />
+			 android:hint ="输入待注册人员的民族"
+			 android:id="@+id/edit_person_nation"/>
+			<EditText
+			 android:layout_below="@id/edit_person_nation"
+			 android:layout_width="fill_parent"
+			 android:layout_height="wrap_content"
+			 android:hint ="输入待注册人员的籍贯"
+			 android:id="@+id/edit_person_native"/>
+			<EditText
+			 android:layout_below="@id/edit_person_native"
+			 android:layout_width="fill_parent"
+			 android:layout_height="wrap_content"
+			 android:hint ="输入待注册人员的住址"
+			 android:id="@+id/edit_person_address"/>
+			<EditText
+			 android:layout_below="@id/edit_person_address"
+			 android:layout_width="fill_parent"
+			 android:layout_height="wrap_content"
+			 android:hint ="输入待注册人员的联系电话"
+			 android:id="@+id/edit_person_phonenumber"/>
+			<EditText
+			 android:layout_below="@id/edit_person_phonenumber"
+			 android:layout_width="fill_parent"
+			 android:layout_height="wrap_content"
+			 android:hint ="输入待注册人员的备注"
+			 android:id="@+id/edit_person_comment"/>			 
 		</RelativeLayout>
 	</ScrollView>
-</RelativeLayout>	
-	<!-- 
-	<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
-	 android:id="@android:id/tabhost"
-	 android:layout_width="fill_parent"
-	 android:layout_height="fill_parent">
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	     android:orientation="vertical"
-	     android:layout_width="fill_parent"
-	     android:layout_height="fill_parent">
-	     	<TabWidget android:id="@android:id/tabs"
-	     	 android:layout_width="fill_parent"
-	     	 android:layout_height="wrap_content"/>
-	     	 <FrameLayout android:id="@android:id/tabcontent"
-        	 android:layout_width="fill_parent"
-        	 android:layout_height="wrap_content">
-				<TextView  
-				android:id="@+id/reg_police"
-	    		android:layout_width="fill_parent" 
-	    		android:layout_height="wrap_content" 
-			    android:text="police"/>
-			    <TextView  
-			     android:id="@+id/reg_company"
-		    	 android:layout_width="fill_parent" 
-		    	 android:layout_height="wrap_content" 
-				 android:text="Company"/>
-			 </FrameLayout>
-		</LinearLayout> 
-		
-	</TabHost>
-	
- 
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:orientation="vertical"
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent">
-
-		<TextView  
-    		android:layout_width="fill_parent" 
-    		android:layout_height="wrap_content" 
-		    android:text="Company"/>
-	</LinearLayout>
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:orientation="vertical"
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent">
-
-		<TextView  
-    		android:layout_width="fill_parent" 
-    		android:layout_height="wrap_content" 
-		    android:text="civil"/>
-	</LinearLayout>
-	 -->
+</RelativeLayout>

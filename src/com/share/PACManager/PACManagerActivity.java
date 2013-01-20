@@ -1,6 +1,8 @@
 package com.share.PACManager;
 
 import android.app.Activity;
+
+import com.share.PACManager.params.*;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +10,9 @@ import android.graphics.Color;
 import android.content.Intent;
 import android.gesture.Gesture;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
 import android.util.Log;
 import android.view.GestureDetector;
@@ -21,6 +26,7 @@ import android.view.Gravity;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
+import android.widget.TabWidget;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
@@ -29,6 +35,7 @@ import android.widget.Toast;
 public class PACManagerActivity extends TabActivity 
 {
 	private GestureDetector m_gesDetector;
+	private CurHandler m_curHandler;
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,8 @@ public class PACManagerActivity extends TabActivity
         
         createTabs();    	
        // m_gesDetector = new GestureDetector(new GestureListner());
+        Looper curLooper = Looper.myLooper();
+        m_curHandler = new CurHandler(curLooper);
     }
 
     
@@ -46,6 +55,27 @@ public class PACManagerActivity extends TabActivity
         return super.onTouchEvent(event);
     }
     
+    class CurHandler extends Handler
+    {
+     public CurHandler(Looper looper)
+     {
+            super(looper);
+     }
+     public void handleMessage(Message msg) 
+     {
+    	 switch(msg.what)
+    	 {
+    	 case StaticParams.MSG_UI_SET_TAB_HEIGHT:
+    		 Bundle msgData = msg.getData();
+    		 int nHeight = msgData.getInt("TabHeight",0);
+    		 setTabTagHeight(nHeight);
+    		 break;
+    	 default:
+    		 super.handleMessage(msg);
+    		 break;
+    	 }            
+      }    
+    }
     
     class GestureListner extends SimpleOnGestureListener
     {
@@ -165,12 +195,28 @@ public class PACManagerActivity extends TabActivity
 		spec.setContent(intent);
 		tabHost.addTab(spec);
 		
-		tabHost.setOnTabChangedListener(new OnTabChangeListener(){
-			@Override
-			public void onTabChanged(String tabId) {
-				InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-				imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-			}			
+		tabHost.setOnTabChangedListener(new OnTabChangeListener()
+		{
+				@Override
+				public void onTabChanged(String tabId) 
+				{
+					InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+					imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+				}			
 		});
 	}
+		
+		
+	private void setTabTagHeight(int nHeight)
+    {
+		TabHost tabHost = getTabHost();
+    	TabWidget tabWidget = tabHost.getTabWidget();
+    	for (int i = 0; i < tabWidget.getChildCount(); i++) 
+    	{
+    	   tabWidget.getChildAt(i).getLayoutParams().height = Math.min(nHeight,0);
+    	   tabWidget.getChildAt(i).getLayoutParams().width = 65;    	       	   
+    	}
+    }
+
+	
 }
