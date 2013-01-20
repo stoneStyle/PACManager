@@ -20,10 +20,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View.OnTouchListener;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.view.Gravity;
 
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -40,7 +42,7 @@ public class PACManagerActivity extends TabActivity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.tab_layout); 
         
         createTabs(); 
@@ -180,8 +182,8 @@ public class PACManagerActivity extends TabActivity
 		tabHost.addTab(spec);
 
 		//2
-		view = createTabView(this, " 信息查询");
-		intent = new Intent(this, TestActivity.class);
+		view = createTabView(this, "信息查询");
+		intent = new Intent(this, QueryActivity.class);
 		spec = tabHost.newTabSpec("tab2");
 		spec.setIndicator(view);
 		spec.setContent(intent);
@@ -189,7 +191,7 @@ public class PACManagerActivity extends TabActivity
 
 		//3
 		view = createTabView(this, "系统维护");
-		intent = new Intent(this, TestActivity.class);
+		intent = new Intent(this, SettingActivity.class);
 		spec = tabHost.newTabSpec("tab3");
 		spec.setIndicator(view);
 		spec.setContent(intent);
@@ -200,12 +202,11 @@ public class PACManagerActivity extends TabActivity
 				@Override
 				public void onTabChanged(String tabId) 
 				{
-					InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-					imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+					//InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+					//imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 				}			
-		});
+		});		
 	}
-		
 		
 	private void setTabTagHeight(int nHeight)
     {
