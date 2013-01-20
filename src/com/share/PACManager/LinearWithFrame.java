@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -25,7 +27,9 @@ public class LinearWithFrame extends LinearLayout {
 		
 		pt.setStrokeWidth(2.0f);
 		pt.setStyle(Style.STROKE);
-		canvas.drawRect(0,0,this.getWidth(),this.getHeight(), pt);
+		
+		canvas.drawRoundRect(new RectF(0,0,this.getWidth(),this.getHeight()), 10, 10, pt);
+		
 	} 
 
 }

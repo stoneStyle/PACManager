@@ -60,6 +60,7 @@
 						android:layout_marginTop="1dip"
 						android:layout_centerVertical="true"
 						android:layout_weight="2"
+						android:inputType="number"
 						android:id="@+id/edit_police"
 						android:hint="请输入民警编号" />
 				</LinearLayout>
@@ -96,6 +97,7 @@
 						android:layout_width="fill_parent"
 						android:layout_height="wrap_content"
 						android:id="@+id/edit_company"
+						android:inputType="number"
 						android:hint="请输入企业编号" />
 				</LinearLayout>
 				<Button
@@ -107,7 +109,7 @@
 					android:text="注册新企业" />
 			</RelativeLayout>
 			<TextView
-				android:layout_marginTop="20dip"
+				android:layout_marginTop="0dip"
 				android:layout_marginBottom="20dip"
 				android:textSize="18dip"
 				android:layout_width="fill_parent"
@@ -179,6 +181,7 @@
 				android:orientation="vertical"
 				android:background="#FFFFFF"
 				android:id="@+id/line_base_person_info">
+				<!-- 姓名 -->
 				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
@@ -213,6 +216,7 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_centerVertical="true"
+						android:inputType="number"
 						android:text=" 证件号码：" />
 					<EditText
 						android:layout_width="fill_parent"
@@ -262,6 +266,27 @@
 						android:hint="输入待注册人员的籍贯"
 						android:id="@+id/edit_person_native" />
 				</LinearLayout>
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 出生日期：" />
+					<Button
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="1985-07-02"
+						android:id="@+id/btn_person_birthday" />
+				</LinearLayout>
+
 				<!-- 联系方式行 -->
 				<LinearLayout
 					android:layout_width="fill_parent"
@@ -280,6 +305,7 @@
 					<EditText
 						android:layout_width="fill_parent"
 						android:layout_height="wrap_content"
+						android:inputType="number"
 						android:hint="输入待注册人员的联系电话"
 						android:id="@+id/edit_person_phonenumber" />
 				</LinearLayout>
@@ -312,14 +338,222 @@
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center"
+				android:text=" 企业人员信息"
+				android:visibility="visible"
+				android:id="@+id/tip_type_person_info" />
+			<!-- 企业人员信息 -->
+			<com.share.PACManager.LinearWithFrame
+				android:layout_width="fill_parent"
+				android:layout_height="0dip"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:orientation="vertical"
+				android:background="#FFFFFF"
+				android:visibility="visible"
+				android:id="@+id/layout_company_person_info">
+				<!-- 职务 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 职务:" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="输入待注册人员的住址"
+						android:id="@+id/edit_company_office" />
+				</LinearLayout>
+				<!-- 岗位 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:visibility="visible"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 岗位:" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="输入待注册人员的住址"
+						android:id="@+id/edit_company_job" />
+				</LinearLayout>
+				<!-- 入职时间 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 入职时间：" />
+					<Button
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="2012-12-21"
+						android:id="@+id/btn_person_checkintime" />
+				</LinearLayout>
+				<CheckBox
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checked="true"
+					android:textColor="#000000"
+					android:text="是否自动离职"
+					android:tag="是否自动离职"
+					android:id="@+id/check_btn_autocheckout" />
+				<!-- 离职时间 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="0dip"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:visibility="visible"
+					android:orientation="horizontal"
+					android:id="@+id/layout_comp_person_checkout">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 离职时间:" />
+					<Button
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="2012-12-21"
+						android:id="@+id/btn_person_checkouttime" />
+				</LinearLayout>
+			</com.share.PACManager.LinearWithFrame>
+			<!-- 租赁人员信息 -->
+			<com.share.PACManager.LinearWithFrame
+				android:layout_width="fill_parent"
+				android:layout_height="0dip"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:orientation="vertical"
+				android:background="#FFFFFF"
+				android:visibility="visible"
+				android:id="@+id/layout_rent_person_info">
+
+				<!-- 入住时间 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 入住日期：" />
+					<Button
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="2012-12-21"
+						android:id="@+id/btn_rent_checkintime" />
+				</LinearLayout>
+				<CheckBox
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checked="true"
+					android:textColor="#000000"
+					android:text="是否自动退租"
+					android:tag="是否自动退租"
+					android:id="@+id/check_btn_rent_autocheckout" />
+				<!-- 退租时间 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="0dip"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:visibility="visible"
+					android:id="@+id/layout_rent_person_checkout"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 退租日期:" />
+					<Button
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="2012-12-21"
+						android:id="@+id/btn_rent_checkouttime" />
+				</LinearLayout>
+				<!-- 详细地址 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="vertical">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 详细地址" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="请输入详细地址"
+						android:lines="2"
+						android:id="@+id/edit_address_detail" />
+				</LinearLayout>
+			</com.share.PACManager.LinearWithFrame>
+			<TextView
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:textSize="18dip"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
 				android:text=" 备注信息"
-				android:id="@+id/tip_base_person_info" />
+				android:id="@+id/tip_base_person_comment" />
 			<EditText
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				android:lines="3"
 				android:hint="输入待注册人员的备注"
 				android:id="@+id/edit_person_comment" />
+			<Button
+				android:layout_marginTop="20dip"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/btn_reg_person"
+				android:text="注册" />
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>

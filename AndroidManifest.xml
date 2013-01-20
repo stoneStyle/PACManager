@@ -36,6 +36,20 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>        
         </activity>
+        <activity android:name=".RegPolice" 
+         		 android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>        
+        </activity>
+        
+        <activity android:name=".RegCompany" 
+         		 android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>        
+        </activity>
+        
 
         <activity android:name=".SettingActivity"
                   android:label="@string/app_name">
