@@ -1,14 +1,10 @@
 package com.share.PACManager;
 
-import android.app.Activity;
-
 import com.share.PACManager.params.*;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.content.Intent;
-import android.gesture.Gesture;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -19,20 +15,16 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.View.OnTouchListener;
-import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.view.Gravity;
 
 import android.view.Window;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
-import android.widget.Toast;
 
 public class PACManagerActivity extends TabActivity 
 {
@@ -199,12 +191,13 @@ public class PACManagerActivity extends TabActivity
 		
 		tabHost.setOnTabChangedListener(new OnTabChangeListener()
 		{
-				@Override
-				public void onTabChanged(String tabId) 
-				{
-					//InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-					//imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-				}			
+			@Override
+			public void onTabChanged(String tabId) 
+			{
+				InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+			}			
+
 		});		
 	}
 		

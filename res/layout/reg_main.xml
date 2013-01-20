@@ -1,114 +1,325 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout	
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
-	<ScrollView 
-	 xmlns:android="http://schemas.android.com/apk/res/android"   
-	 android:id="@+id/RegScrollView" 
-	 android:layout_width="fill_parent"   
-	 android:layout_height="wrap_content" 
-	 android:scrollbars="vertical">
-	 	<RelativeLayout
-	 	 android:layout_width="fill_parent"
-		 android:layout_height="wrap_content">
-		    <TextView  
-			 android:id="@+id/text_title"
-			 android:layout_marginTop="20dip"
-			 android:layout_marginBottom="20dip"
-	    	 android:layout_width="wrap_content" 
-	    	 android:layout_height="wrap_content"
-	    	 android:layout_centerHorizontal="true"
-		     android:text="人员注册"
-			 android:textSize="20dip"/>
-		 	<RelativeLayout
-		 	 android:layout_below="@id/text_title"
-		  	 android:layout_width="fill_parent"
-		  	 android:layout_height="wrap_content"
-		  	 android:id="@+id/layout_police">
-		 		<EditText
-		 	  	 android:layout_width ="fill_parent"
-		 	  	 android:layout_height="wrap_content"
-				 android:id="@+id/edit_police"
-				 android:hint="请输入民警编号"/>
+	<RelativeLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="40dip"
+		android:background="@drawable/button_normal"
+		android:id="@+id/layout_reg_title">
+		<TextView
+			android:id="@+id/text_title"
+			android:text="人员注册"
+			android:textColor="#FFFFFF"
+			android:textSize="18dip"
+			android:background="@drawable/button_normal"
+			android:layout_centerInParent="true"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+	</RelativeLayout>
+	<ScrollView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/RegScrollView"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/layout_reg_title"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:scrollbars="vertical">
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dip"
+				android:id="@+id/layout_police">
+				<!--一行的layout  -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:orientation="horizontal"
+					android:id="@+id/line_policecode">
+					<TextView
+						android:textSize="18dip"
+						android:layout_centerInParent="true"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 登记民警："
+						android:id="@+id/tip_policecode" />
+					<EditText
+						android:layout_toRightOf="@id/tip_policecode"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="1dip"
+						android:layout_centerVertical="true"
+						android:layout_weight="2"
+						android:id="@+id/edit_police"
+						android:hint="请输入民警编号" />
+				</LinearLayout>
 				<Button
-				 android:layout_below="@id/edit_police"
-				 android:layout_width ="wrap_content"
-			 	 android:layout_height="wrap_content"
-				 android:id="@+id/btn_reg_police"
-				 android:layout_alignParentRight="true"			 
-				 android:text="注册新民警"/>
+					android:layout_below="@id/line_policecode"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/btn_reg_police"
+					android:layout_alignParentRight="true"
+					android:text="注册新民警" />
 			</RelativeLayout>
 			<RelativeLayout
-		  	 android:layout_below="@id/layout_police"
-		  	 android:layout_width="fill_parent"
-		  	 android:layout_height="wrap_content"	  	 
-		  	 android:id="@+id/layout_company">
-		 		<EditText
-		 	  	 android:layout_width ="fill_parent"
-		 	  	 android:layout_height="wrap_content"
-				 android:id="@+id/edit_company"
-				 android:hint="请输入企业编号"/>
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="20dip"
+				android:id="@+id/layout_company">
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:orientation="horizontal"
+					android:background="#FFFFFF"
+					android:id="@+id/line_companycode">
+					<TextView
+						android:textSize="18dip"
+						android:layout_centerInParent="true"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 登记企业："
+						android:id="@+id/tip_companycode" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:id="@+id/edit_company"
+						android:hint="请输入企业编号" />
+				</LinearLayout>
 				<Button
-				 android:layout_below="@id/edit_company"
-				 android:layout_width ="wrap_content"
-			 	 android:layout_height="wrap_content"
-				 android:id="@+id/btn_reg_company"
-				 android:layout_alignParentRight="true"			 
-				 android:text="注册新企业"/>
+					android:layout_below="@id/line_companycode"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/btn_reg_company"
+					android:layout_alignParentRight="true"
+					android:text="注册新企业" />
 			</RelativeLayout>
-			<Spinner
-			 android:layout_below="@id/layout_company" 
-			 android:layout_height="wrap_content" 
-			 android:layout_width="20dip"			 			 
-			 android:id="@+id/spinner_persontype"/>
+			<TextView
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:textSize="18dip"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text=" 选择人员类型"
+				android:id="@+id/tip_sel_types" />
+			<com.share.PACManager.LinearWithFrame
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:orientation="vertical"
+				android:background="#FFFFFF"
+				android:id="@+id/sel_type">
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:orientation="horizontal"
+					android:id="@+id/select_person_type">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 人员类型："
+						android:id="@+id/tip_sel_person_type" />
+					<Spinner
+						android:layout_below="@id/layout_company"
+						android:layout_height="wrap_content"
+						android:layout_width="fill_parent"
+						android:id="@+id/spinner_persontype" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="horizontal"
+					android:id="@+id/select_card_type">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 证件类型："
+						android:id="@+id/tip_sel_person_type" />
+					<Spinner
+						android:layout_height="wrap_content"
+						android:layout_width="fill_parent"
+						android:id="@+id/spinner_cardtype" />
+				</LinearLayout>
+			</com.share.PACManager.LinearWithFrame>
+			<TextView
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:textSize="18dip"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text=" 人员基本信息"
+				android:id="@+id/tip_base_person_info" />
+			<com.share.PACManager.LinearWithFrame
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:orientation="vertical"
+				android:background="#FFFFFF"
+				android:id="@+id/line_base_person_info">
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 姓名：" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="输入待注册人员的姓名"
+						android:id="@+id/edit_person_name" />
+				</LinearLayout>
+				<!-- 证件号码行 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="vertical">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 证件号码：" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="输入待注册人员的证件号码"
+						android:id="@+id/edit_card_code" />
+				</LinearLayout>
+				<!-- 民族行 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 民族：" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="输入待注册人员的民族"
+						android:id="@+id/edit_person_nation" />
+				</LinearLayout>
+				<!-- 籍贯行 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 籍贯：" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="输入待注册人员的籍贯"
+						android:id="@+id/edit_person_native" />
+				</LinearLayout>
+				<!-- 联系方式行 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="vertical">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 联系方式：" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="输入待注册人员的联系电话"
+						android:id="@+id/edit_person_phonenumber" />
+				</LinearLayout>
+				<!-- 住址行 -->
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="5dip"
+					android:layout_marginRight="5dip"
+					android:layout_marginBottom="10dip"
+					android:orientation="vertical">
+					<TextView
+						android:textSize="18dip"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text=" 住址：" />
+					<EditText
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="输入待注册人员的住址"
+						android:id="@+id/edit_person_address" />
+				</LinearLayout>
+			</com.share.PACManager.LinearWithFrame>
+			<TextView
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:textSize="18dip"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text=" 备注信息"
+				android:id="@+id/tip_base_person_info" />
 			<EditText
-			 android:layout_below="@id/spinner_persontype"
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"			 
-			 android:hint ="输入待注册人员的姓名"
-			 android:id="@+id/edit_person_name"/>
-			<Spinner
-			 android:layout_below="@id/edit_person_name" 
-			 android:layout_height="wrap_content" 
-			 android:layout_width="20dip"			  
-			 android:id="@+id/spinner_cardtype"/>			 
-			<EditText
-			 android:layout_below="@id/spinner_cardtype"
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"			 
-			 android:hint ="输入待注册人员的身份证号"
-			 android:id="@+id/edit_card_code"/>
-			<EditText
-			 android:layout_below="@id/edit_card_code"
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:hint ="输入待注册人员的民族"
-			 android:id="@+id/edit_person_nation"/>
-			<EditText
-			 android:layout_below="@id/edit_person_nation"
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:hint ="输入待注册人员的籍贯"
-			 android:id="@+id/edit_person_native"/>
-			<EditText
-			 android:layout_below="@id/edit_person_native"
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:hint ="输入待注册人员的住址"
-			 android:id="@+id/edit_person_address"/>
-			<EditText
-			 android:layout_below="@id/edit_person_address"
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:hint ="输入待注册人员的联系电话"
-			 android:id="@+id/edit_person_phonenumber"/>
-			<EditText
-			 android:layout_below="@id/edit_person_phonenumber"
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:hint ="输入待注册人员的备注"
-			 android:id="@+id/edit_person_comment"/>			 
-		</RelativeLayout>
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:lines="3"
+				android:hint="输入待注册人员的备注"
+				android:id="@+id/edit_person_comment" />
+		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>
