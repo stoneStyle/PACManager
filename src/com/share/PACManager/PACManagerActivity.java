@@ -15,11 +15,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View.OnTouchListener;
+import android.view.inputmethod.InputMethodManager;
 import android.view.Gravity;
 
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
 import android.widget.Toast;
@@ -122,7 +124,7 @@ public class PACManagerActivity extends TabActivity
     	LinearLayout layout = new LinearLayout(this);
     	layout.setClickable(true);
     	layout.setGravity(Gravity.CENTER);
-    	layout.setBackgroundResource(R.drawable.login_button_bg);
+    	layout.setBackgroundResource(R.drawable.tab_btn_selector);
 		
 		
 		TextView textview = new TextView(c);
@@ -162,6 +164,13 @@ public class PACManagerActivity extends TabActivity
 		spec.setIndicator(view);
 		spec.setContent(intent);
 		tabHost.addTab(spec);
-	}	
-
+		
+		tabHost.setOnTabChangedListener(new OnTabChangeListener(){
+			@Override
+			public void onTabChanged(String tabId) {
+				InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+			}			
+		});
+	}
 }

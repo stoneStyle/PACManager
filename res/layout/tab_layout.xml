@@ -7,20 +7,18 @@
 	<RelativeLayout  
 		android:layout_width="fill_parent"  
 		android:layout_height="fill_parent"  
-		android:orientation="vertical"  
 	>  
 	 	<FrameLayout
 	 		android:id="@android:id/tabcontent"
 	 		android:layout_width="fill_parent"
 			android:layout_height="fill_parent"  
-			android:layout_weight="1"
+			android:layout_above="@android:id/tabs"
 		/>
 		<TabWidget
 			android:id="@android:id/tabs"  
 			android:layout_width="fill_parent"  
 			android:layout_height="50dip"  
-			android:layout_alignBottom="@android:id/tabcontent"  
-			android:background="@drawable/maintab_toolbar_bg" 
+			android:layout_alignParentBottom="true"
 		/>  
     </RelativeLayout>    
 </TabHost>
