@@ -18,17 +18,16 @@ public class QueryActivity extends Activity {
         setContentView(R.layout.query_layout);
         
         gridview = (NavGridView) findViewById(R.id.id_gridview);
+        gridview.setNumColumns(2);
         initGridView();
     }
     
     private void initGridView()
     {
-    	gridview.addItem(1, "1111", R.drawable.icon);
-    	gridview.addItem(2, "2222", R.drawable.icon);
-    	gridview.addItem(3, "3333", R.drawable.police);
-    	gridview.addItem(4, "4444", R.drawable.icon);
-    	gridview.addItem(5, "5555", R.drawable.icon);
-    	
+    	gridview.addItem(1, "企业信息查询", R.drawable.icon);
+    	gridview.addItem(2, "民警信息查询", R.drawable.icon);
+    	gridview.addItem(3, "人员信息查询", R.drawable.police);
+     	
     	gridview.setOnGridItemListener(new OnGridItemListener(){
 
     		@Override

@@ -47,6 +47,7 @@ public class NavGridView extends GridView {
 	
 	private void initGridView()
 	{		
+		mNumColumns = 3;
 		mAdapter = new GridAdapter();
 		mGridItems = new ArrayList<GridItem>();
 		setAdapter(mAdapter);
@@ -64,6 +65,14 @@ public class NavGridView extends GridView {
 		});
 	}
 	
+	private int mNumColumns;
+	@Override
+	public void setNumColumns(int numColumns) {
+		// TODO Auto-generated method stub
+		mNumColumns = numColumns;
+		super.setNumColumns(numColumns);
+	}
+	
 	public void addItem(int id, String text, int resId)
 	{
 		GridItem item = new GridItem();
@@ -72,7 +81,9 @@ public class NavGridView extends GridView {
 		item.text = text;
 		
 		mGridItems.add(item);
-		mAdapter.notifyDataSetChanged();		
+		mAdapter.notifyDataSetChanged();	
+		
+		
 	}
 	
 	private class GridAdapter extends BaseAdapter{
@@ -97,7 +108,8 @@ public class NavGridView extends GridView {
 			View top = convertView.findViewById(R.id.id_border_top);
 			View right = convertView.findViewById(R.id.id_border_right);
 			
-			int index = position % 3;
+			
+			int index = position % mNumColumns;
 			switch(index)
 			{
 			case 0:
@@ -114,7 +126,7 @@ public class NavGridView extends GridView {
 				break;	
 			}
 			
-			if(position < 3)
+			if(position < mNumColumns)
 				top.setVisibility(View.VISIBLE);
 		}
 
