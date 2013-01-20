@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
+import android.widget.Toast;
 
 public class PACManagerActivity extends TabActivity 
 {
@@ -30,7 +31,7 @@ public class PACManagerActivity extends TabActivity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    //    requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.tab_layout); 
         
         createTabs();    	
@@ -121,7 +122,7 @@ public class PACManagerActivity extends TabActivity
     	LinearLayout layout = new LinearLayout(this);
     	layout.setClickable(true);
     	layout.setGravity(Gravity.CENTER);
-    	layout.setBackgroundResource(R.drawable.tab_btn_selector);
+    	layout.setBackgroundResource(R.drawable.login_button_bg);
 		
 		
 		TextView textview = new TextView(c);

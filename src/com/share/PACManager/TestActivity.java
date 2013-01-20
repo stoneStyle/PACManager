@@ -16,6 +16,7 @@ public class TestActivity extends Activity {
         int n = (times++) % 3;
         int color = n==0?Color.RED:n==1?Color.GREEN:Color.BLUE;
         View contentView = getWindow().getDecorView();
-        contentView.setBackgroundColor(color);        
+        contentView.setBackgroundColor(color);  
+        contentView.setBackgroundColor(Color.WHITE);
     }
 }
