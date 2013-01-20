@@ -51,7 +51,7 @@ public class LoginActivity extends Activity {
     
     private void doLogin(String pwd)
     {
-    	Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+    	//Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
     	
     	Intent intent = new Intent();
     	intent.setClass(this, PACManagerActivity.class);

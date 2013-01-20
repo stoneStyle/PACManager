@@ -43,7 +43,7 @@ public class PACManagerActivity extends TabActivity
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.tab_layout); 
         
-        createTabs();    	
+        createTabs(); 
        // m_gesDetector = new GestureDetector(new GestureListner());
         Looper curLooper = Looper.myLooper();
         m_curHandler = new CurHandler(curLooper);
