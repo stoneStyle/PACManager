@@ -7,7 +7,7 @@
 	 xmlns:android="http://schemas.android.com/apk/res/android"   
 	 android:id="@+id/RegScrollView" 
 	 android:layout_width="fill_parent"   
-	 android:layout_height="fill_parent" 
+	 android:layout_height="wrap_content" 
 	 android:scrollbars="vertical">
 	 	<RelativeLayout
 	 	 android:layout_width="fill_parent"
@@ -81,12 +81,6 @@
 			 android:id="@+id/edit_card_code"/>
 			<EditText
 			 android:layout_below="@id/edit_card_code"
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:hint ="输入待注册人员的姓名"
-			 android:id="@+id/edit_person_name"/>
-			<EditText
-			 android:layout_below="@id/edit_person_name"
 			 android:layout_width="fill_parent"
 			 android:layout_height="wrap_content"
 			 android:hint ="输入待注册人员的民族"
