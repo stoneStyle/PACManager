@@ -3,55 +3,64 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="5dip"
-    android:background="#96D7F4"
+    android:background="#FAFAFA"
+>
+    <RelativeLayout
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="40dip"
+	    android:background="@drawable/button_normal"
     >
+        <TextView 
+        	android:id="@+id/textView1" 
+        	android:text="用户登录" 
+        	android:textColor="#FFFFFF"
+        	android:textSize="18dip"
+        	android:layout_centerInParent="true"
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"/>
+    
+    </RelativeLayout>
     
     <LinearLayout
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:padding="10dip"
     >
-    	<ImageView 
-    		android:id="@+id/imageView1" 
-    		android:src="@drawable/police" 
-    		android:scaleType="fitXY"
-    		android:layout_width="64dip" 
-    		android:layout_height="64dip"/>
-    		
-    	<TextView 
+	   	<TextView 
     		android:id="@+id/textView1" 
-    		android:text="警讯通" 
-    		android:textSize="24dip"
+    		android:text="请输入密码" 
+    		android:textSize="18dip"
     		android:gravity="center|left"
-    		android:textColor="#FFFFFF"
+    		android:textColor="#646464"
     		android:layout_width="fill_parent" 
-    		android:layout_height="64dip"/>
-    
+    		android:layout_height="wrap_content"/>    
     </LinearLayout>
     
     <LinearLayout
 	    android:orientation="vertical"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:padding="10dip"
+	    android:paddingLeft="10dip"
+	    android:paddingRight="10dip"
+	    android:gravity="center"
     >
 	    <EditText 
 	    	android:layout_width="fill_parent" 
 	    	android:layout_height="wrap_content" 
 	    	android:id="@+id/id_pwd_text" 
 	    	android:inputType="textPassword"
+	    	android:textSize="18dip"
 	    	android:layout_marginBottom="5dip"
-	    	android:background="@drawable/login_edit_bg"
-	    	android:hint="请输入密码"
+	    	
 	    />
 
 	    <Button 
 	    	android:layout_width="fill_parent" 
-	    	android:layout_height="wrap_content" 
+	    	android:layout_height="50dip" 
 	    	android:text="登录"
 	    	android:textSize="18dip"
-	    	android:textColor="#FFFFFF"
+	    	android:textColor="#646464"
 	    	android:background="@drawable/login_button_bg" 
 	    	android:id="@+id/id_login_button"/>
 	    	

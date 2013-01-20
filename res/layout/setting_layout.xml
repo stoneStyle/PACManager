@@ -28,7 +28,7 @@
     >
 		<TextView 
         	android:id="@+id/textView1" 
-        	android:text="请选择要查询的类别" 
+        	android:text="请选择操作类别" 
         	android:textSize="14dip"
         	android:layout_width="wrap_content" 
         	android:layout_centerInParent="true"

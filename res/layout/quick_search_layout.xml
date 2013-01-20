@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FAFAFA"
+    >
+    <RelativeLayout
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="60dip"
+	    android:background="@drawable/button_normal"
+    >
+        <EditText 
+        	android:layout_width="fill_parent" 
+        	android:layout_alignParentLeft="true" 
+        	android:layout_height="wrap_content" 
+        	android:layout_toLeftOf="@+id/id_search"
+        	android:layout_centerVertical="true"
+        	android:layout_marginLeft="5dip"
+        	android:id="@+id/id_search_edit"/>
+        	
+        <TextView 
+        	android:layout_width="60dip" 
+        	android:layout_height="wrap_content" 
+        	android:id="@+id/id_search" 
+        	android:textColor="#FFFFFF"
+        	android:gravity="center"
+        	android:textSize="16dip"
+        	android:background="@drawable/login_button_bg"
+        	android:layout_margin="5dip"
+        	android:layout_centerVertical="true"
+        	android:clickable="true"
+        	android:layout_alignParentRight="true"
+        	android:text="查询"/>
+    
+    </RelativeLayout>
+ </LinearLayout>

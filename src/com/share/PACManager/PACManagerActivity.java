@@ -12,6 +12,7 @@ import android.os.Message;
 
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -19,6 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.view.Gravity;
 
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -144,15 +146,13 @@ public class PACManagerActivity extends TabActivity
     }
     
     private View createTabView(Context c, String text) {
-
     	LinearLayout layout = new LinearLayout(this);
     	layout.setClickable(true);
     	layout.setGravity(Gravity.CENTER);
     	layout.setBackgroundResource(R.drawable.tab_btn_selector);
-		
-		
+				
 		TextView textview = new TextView(c);
-		textview.setTextSize(18);
+		textview.setTextSize(16);
 		textview.setText(text);
 		textview.setTextColor(Color.WHITE);
 		

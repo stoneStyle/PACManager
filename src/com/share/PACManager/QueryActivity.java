@@ -4,6 +4,7 @@ import com.share.PACManager.NavGridView.OnGridItemListener;
 import com.share.PACManager.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.Toast;
@@ -39,6 +40,8 @@ public class QueryActivity extends Activity {
     
     private void clickItem(int id)
     {
-    	Toast.makeText(this, "OnClick: " + id, Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent();
+    	intent.setClass(this, QuickSearchActivity.class);
+    	startActivity(intent);
     }
 }
