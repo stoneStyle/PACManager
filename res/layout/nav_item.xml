@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="120dip"
+    >
+
+    <LinearLayout
+		android:orientation="vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+	>    
+		<ImageView 
+			android:id="@+id/id_icon" 
+			android:layout_width="64dip" 
+			android:src="@drawable/police" 
+			android:scaleType="fitXY"
+			android:layout_height="64dip"/>
+			
+		<TextView 
+			android:id="@+id/id_text" 
+			android:layout_width="fill_parent" 
+			android:text="信息查询" 
+			android:textColor="#000000"
+			android:textSize="14dip"
+			android:gravity="center"
+			android:layout_height="wrap_content" />		
+	</LinearLayout>
+	
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/line_hor_bg"
+		android:id="@+id/id_border_top"
+	/> 
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/line_hor_bg"
+		android:layout_alignParentBottom="true"
+		android:id="@+id/id_border_bottom"
+	/> 
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="fill_parent"
+		android:layout_alignParentRight="true"
+		android:background="@drawable/line_ver_bg"
+		android:id="@+id/id_border_right"
+		android:layout_above="@+id/id_border_bottom"
+	/> 
+</RelativeLayout>
