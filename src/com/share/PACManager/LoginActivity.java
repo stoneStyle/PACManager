@@ -19,21 +19,36 @@ public class LoginActivity extends BindActivity {
 
 	private EditText pwd_text;
 	private Button login_button;
+	private Server mServer;
+	/*
+	 * 测试参数
+	 */
+	private boolean from_reg;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+        mServer = new Server();
+        from_reg = getIntent().getBooleanExtra("from_reg", false);
+        if(!from_reg && !mServer.query(this))
+        {
+        	Intent intent = new Intent();
+        	intent.putExtra("from_login", true);
+			intent.setClass(LoginActivity.this, RegDeviceActivity.class);
+			startActivityForResult(intent, 100);
+			finish();
+			return;
+        }
+        
         setContentView(R.layout.login_layout); 
         
         pwd_text = (EditText) findViewById(R.id.id_pwd_text);
-        pwd_text.setText("123456");
-        
+        pwd_text.setText("123456");        
         login_button = (Button) findViewById(R.id.id_login_button);
         login_button.setOnClickListener(onLoginButton);
     }
-    
     
     public OnClickListener onLoginButton = new OnClickListener(){
 
@@ -54,7 +69,7 @@ public class LoginActivity extends BindActivity {
     private void doLogin(String pwd)
     {    	
     	final ProgressDialog progressDialog = ProgressDialog.show(this, "", "正在验证密码...", true, false); 
-		mBoundService.checkPassword(pwd, new CheckPasswordListener() {
+		mBoundService.checkPassword(new CheckPasswordListener() {
 			@Override
 			public void onCheckResult(boolean result) {
 				if (result) {
@@ -67,6 +82,11 @@ public class LoginActivity extends BindActivity {
 							Toast.LENGTH_SHORT).show();
 				}
 				progressDialog.dismiss();
+			}
+
+			@Override
+			public String requestPassword() {
+				return pwd_text.getText().toString();
 			}
 
 		});

@@ -26,8 +26,8 @@ public class QueryActivity extends Activity {
     private void initGridView()
     {
     	gridview.addItem(1, "企业信息查询", R.drawable.icon);
-    	gridview.addItem(2, "民警信息查询", R.drawable.icon);
-    	gridview.addItem(3, "人员信息查询", R.drawable.police);
+    	gridview.addItem(2, "民警信息查询", R.drawable.police);
+    	gridview.addItem(3, "人员信息查询", R.drawable.icon);
      	
     	gridview.setOnGridItemListener(new OnGridItemListener(){
 

@@ -2,6 +2,8 @@ package com.share.PACManager.data;
 
 import com.share.PACManager.task.CheckPasswordTask;
 import com.share.PACManager.task.CheckPasswordTask.CheckPasswordListener;
+import com.share.PACManager.task.RegDeviceTask;
+import com.share.PACManager.task.RegDeviceTask.RegDeviceListener;
 
 import android.app.Service;
 import android.content.Intent;
@@ -44,10 +46,16 @@ public class LocalService extends Service {
     
     ////////////////////////////////////////////////////
     // ºÏ≤‚√‹¬Î≤ø∑÷    
-    public void checkPassword(String password, CheckPasswordListener listener)
+    public void checkPassword(CheckPasswordListener listener)
     {
     	CheckPasswordTask task = new CheckPasswordTask(this);
-    	task.checkPassword(password, listener);
+    	task.checkPassword(listener);
+    }
+    
+    public void regDevice(RegDeviceListener listener)
+    {
+    	RegDeviceTask task = new RegDeviceTask(this);
+    	task.regDevice(listener);
     }
 }
 

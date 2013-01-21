@@ -14,6 +14,7 @@ public class CheckPasswordTask extends Thread{
 	private String mPassword;
 	
 	public interface CheckPasswordListener {
+		public String requestPassword();
 		public void onCheckResult(boolean result);
 	}
 
@@ -21,10 +22,8 @@ public class CheckPasswordTask extends Thread{
 		mContext = context;
 	}
 	
-	public void checkPassword(String password, CheckPasswordListener listener) {
-		mPassword = password;
-		mListener = listener;		
-	
+	public void checkPassword(CheckPasswordListener listener) {
+		mListener = listener;	
 		start();
 	}
 
@@ -34,6 +33,7 @@ public class CheckPasswordTask extends Thread{
 		if(imei != null && imei.length() == 15)
 		{
 			try {
+				mPassword = mListener.requestPassword();
 				encodePassword(mPassword, imei);
 				Thread.sleep(500);
 				if(mListener != null)

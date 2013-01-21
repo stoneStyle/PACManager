@@ -34,11 +34,15 @@ public class AnimTabHost extends TabHost {
 	public void setCurrentTab(int index)
 	{
 		int last_index = getCurrentTab();
+		
+		if(last_index == index )
+			return;
+		
 		View last_view = getCurrentView();
 		super.setCurrentTab(index);		
 		View this_view = getCurrentView();
 		
-		if(last_index == index || last_view == null || this_view == null)
+		if(last_view == null || this_view == null)
 			return;
 		
 		if(index > last_index)

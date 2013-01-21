@@ -29,13 +29,14 @@
 		<TextView 
         	android:id="@+id/textView1" 
         	android:text="请选择要查询的类别" 
-        	android:textSize="14dip"
+        	android:textSize="16dip"
+        	android:textColor="#000000"
         	android:layout_width="wrap_content" 
         	android:layout_centerInParent="true"
         	android:layout_height="wrap_content"/>
         	
     </RelativeLayout>
-     <com.share.PACManager.NavGridView
+    <com.share.PACManager.NavGridView
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:listSelector="@null"

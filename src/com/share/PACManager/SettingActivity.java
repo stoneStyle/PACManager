@@ -24,13 +24,16 @@ public class SettingActivity extends Activity {
     
     private void initGridView()
     {
-    	gridview.addItem(1, "同步字典信息", R.drawable.icon);
-    	gridview.addItem(2, "同步企业信息", R.drawable.icon);
-    	gridview.addItem(3, "同步民警信息", R.drawable.police);
-    	gridview.addItem(4, "设备信息下载", R.drawable.icon);
-    	gridview.addItem(5, "通知通告下载", R.drawable.icon);
-    	gridview.addItem(6, "紧急通讯", R.drawable.icon);
-    	gridview.addItem(7, "软件升级", R.drawable.icon);
+    	gridview.addItem(1, "注册民警信息", R.drawable.police);
+    	gridview.addItem(2, "注册企业信息", R.drawable.icon);
+    	gridview.addItem(3, "注册设备信息", R.drawable.icon);
+    	gridview.addItem(4, "同步字典信息", R.drawable.icon);
+    	gridview.addItem(5, "同步企业信息", R.drawable.icon);
+    	gridview.addItem(6, "同步民警信息", R.drawable.police);
+    	gridview.addItem(7, "设备信息下载", R.drawable.icon);
+    	gridview.addItem(8, "通知通告下载", R.drawable.icon);
+    	gridview.addItem(9, "紧急通讯", R.drawable.icon);
+    	gridview.addItem(10, "软件升级", R.drawable.icon);
     	
     	gridview.setOnGridItemListener(new OnGridItemListener(){
     		@Override

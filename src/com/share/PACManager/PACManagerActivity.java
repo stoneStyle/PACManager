@@ -2,8 +2,13 @@ package com.share.PACManager;
 
 import com.share.PACManager.params.*;
 import android.app.TabActivity;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,7 +17,9 @@ import android.os.Message;
 
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.LayoutInflater;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -20,16 +27,21 @@ import android.view.inputmethod.InputMethodManager;
 import android.view.Gravity;
 
 import android.view.Window;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
+import android.widget.Toast;
 
 public class PACManagerActivity extends TabActivity 
 {
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onKeyUp(int, android.view.KeyEvent)
+	 */
+
+
 	private GestureDetector m_gesDetector;
 	private CurHandler m_curHandler;
 	/** Called when the activity is first created. */
@@ -145,6 +157,35 @@ public class PACManagerActivity extends TabActivity
         }    	
     }
     
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		
+		MenuItem mi1 = menu.add(1, 1, 1, "Ë¢ÐÂ");
+		mi1.setIcon(R.drawable.menu_refresh);
+		MenuItem mi2 = menu.add(1, 2, 1, "ÍË³ö");
+		mi2.setIcon(R.drawable.menu_exit);
+		
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if(item.getGroupId() == 1)
+		{
+			switch(item.getItemId())
+			{
+			case 1:
+				
+				break;
+				
+			case 2:
+				
+				break;
+			}
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
     private View createTabView(Context c, String text) {
     	LinearLayout layout = new LinearLayout(this);
     	layout.setClickable(true);
