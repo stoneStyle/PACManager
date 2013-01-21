@@ -18,6 +18,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -27,6 +28,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.view.Gravity;
 
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -186,7 +188,21 @@ public class PACManagerActivity extends TabActivity
 		return super.onOptionsItemSelected(item);
 	}
 	
-    private View createTabView(Context c, String text) {
+    private View createTabView(Context c, String lable, int resId) {
+    	
+    	LayoutInflater inflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View convertView = inflater.inflate(R.layout.tab_item, null, false);
+		convertView.setBackgroundResource(R.drawable.tab_btn_selector);
+		convertView.setClickable(true);
+		
+		ImageView icon = (ImageView) convertView.findViewById(R.id.id_icon);
+		TextView text = (TextView) convertView.findViewById(R.id.id_text);		
+		icon.setImageResource(resId);
+		text.setText(lable);
+		
+		
+		return convertView;
+    	/*
     	LinearLayout layout = new LinearLayout(this);
     	layout.setClickable(true);
     	layout.setGravity(Gravity.CENTER);
@@ -194,19 +210,20 @@ public class PACManagerActivity extends TabActivity
 				
 		TextView textview = new TextView(c);
 		textview.setTextSize(16);
-		textview.setText(text);
-		textview.setTextColor(Color.WHITE);
-		
+		textview.setText(lable);
+		textview.setTextColor(Color.WHITE);		
 		layout.addView(textview);	
 		
 		return layout;
+		
+		*/
 	}
     
 	private void createTabs()
 	{		
 		TabHost tabHost = getTabHost();
 		//1
-		View view = createTabView(this, "信息登记");
+		View view = createTabView(this, "信息登记", R.drawable.tab_icon_person);
 		Intent intent = new Intent(this, RegActivity.class);
 		TabSpec spec = tabHost.newTabSpec("tab1");
 		spec.setIndicator(view);
@@ -215,7 +232,7 @@ public class PACManagerActivity extends TabActivity
 		tabHost.addTab(spec);
 
 		//2
-		view = createTabView(this, "信息查询");
+		view = createTabView(this, "信息查询", R.drawable.tab_icon_query);
 		intent = new Intent(this, QueryActivity.class);
 		spec = tabHost.newTabSpec("tab2");
 		spec.setIndicator(view);
@@ -223,7 +240,7 @@ public class PACManagerActivity extends TabActivity
 		tabHost.addTab(spec);
 
 		//3
-		view = createTabView(this, "系统维护");
+		view = createTabView(this, "系统维护", R.drawable.tab_icon_setting);
 		intent = new Intent(this, SettingActivity.class);
 		spec = tabHost.newTabSpec("tab3");
 		spec.setIndicator(view);
